@@ -3,6 +3,10 @@
     background-color: #1e94d2;
 }
 
+.navbar-toggle{
+    color: #ffffff
+}
+
 .navbar-menu {
     position: fixed;
     top: 0;
