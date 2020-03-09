@@ -4,6 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { CidadesModule } from './cidades/cidades.module';
+import { RouterModule, Routes } from '@angular/router';
+import { CidadesPesquisaComponent } from './cidades/cidades-pesquisa/cidades-pesquisa.component';
+
+const routes: Routes = [
+  {path: 'cidades', component: CidadesPesquisaComponent }
+]
 
 @NgModule({
   declarations: [
@@ -11,8 +18,11 @@ import { CoreModule } from './core/core.module';
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(routes),
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    CidadesModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,16 +2,18 @@
     <div class="container">
         <div class="ui-g">
             <div class="ui-g-12">
-                <a href="#" class="navbar-toggle">
+                <a href="javascript:;"
+                class="navbar-toggle"
+                (click)="exibirMenu=!exibirMenu">
                     <i class="pi pi-bars"></i>
                 </a>
             </div>
         </div>
     </div>
-    <ul class="navbar-menu">
+    <ul class="navbar-menu" [hidden]="!exibirMenu">
         <li class="navbar-usuario">Eduardo</li>
         <li class="navbar-menuitem">
-            <a href="#">Cidades</a>
+            <a routerLink="/cidades">Cidades</a>
         </li>
         <li class="navbar-menuitem">
             <a href="#">Clientes</a>
