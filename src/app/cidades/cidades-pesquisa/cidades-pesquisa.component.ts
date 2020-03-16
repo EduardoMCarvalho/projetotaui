@@ -16,6 +16,7 @@ export class CidadesPesquisaComponent implements OnInit {
   constructor(private cidadesService: CidadeService) { }
 
   ngOnInit() {
+    this.pesquisar();
   }
 
   pesquisar(pagina = 0) {
@@ -25,6 +26,7 @@ export class CidadesPesquisaComponent implements OnInit {
       .then(resultado => {
         this.totalRegistros = resultado.total;
         this.cidades = resultado.cidades;
+        console.log(this.cidades);
       });
   }
   aoMudarPagina(event: LazyLoadEvent) {
