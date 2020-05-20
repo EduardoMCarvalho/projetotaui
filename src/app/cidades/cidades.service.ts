@@ -40,4 +40,10 @@ export class CidadeService {
       return resultado;
     });
   }
+
+  excluir(id:number): Promise<void> {
+    return this.http.delete(`${this.cidadeUrl}/${id}`)
+    .toPromise()
+    .then(() => null);
+  }
 }

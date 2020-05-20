@@ -3,6 +3,37 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif, Arial, Helvetica, sans-serif;
 }
 
+label{
+    font-weight: bold;
+}
+
+.col-id-header {
+    width: 80px;
+}
+
+.col-id {
+    width: 80px;
+    text-align: right;
+}
+
+.col-estado-header {
+    width: 80px;
+}
+
+.col-estado {
+    width: 80px;
+    text-align: center;
+}
+
+.col-acoes-header {
+    width: 120px;
+}
+
+.col-acoes {
+    width: 120px;
+    text-align: center;
+}
+
 @media(min-width:1200px) {
     .container {
         width: 1150px;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CidadeFiltro, CidadeService } from '../cidades.service';
 import { LazyLoadEvent } from 'primeng/api';
 
@@ -13,6 +13,7 @@ export class CidadesPesquisaComponent implements OnInit {
   filtro = new CidadeFiltro();
   cidades = [];
 
+  @ViewChild('tabela', {static:true}) grid;
   constructor(private cidadesService: CidadeService) { }
 
   ngOnInit() {
@@ -26,12 +27,25 @@ export class CidadesPesquisaComponent implements OnInit {
       .then(resultado => {
         this.totalRegistros = resultado.total;
         this.cidades = resultado.cidades;
-        console.log(this.cidades);
       });
   }
   aoMudarPagina(event: LazyLoadEvent) {
     const pagina = event.first / event.rows;
     this.pesquisar(pagina);
+  }
+
+  excluir(cidade: any) {
+    this.cidadesService.excluir(cidade.id)
+    .then(() =>
+    {
+      if (this.grid.first === 0) {
+        this.pesquisar();
+      }
+      else{
+        this.grid.first = 0;
+      }
+    }
+    )
   }
 
 }
